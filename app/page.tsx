@@ -14,14 +14,14 @@ export default function Home() {
         />
         <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
+            시작하려면{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
               app/page.tsx
             </code>
-            .
+            {" "}파일을 수정하세요.
           </li>
           <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
+            저장하면 변경사항이 즉시 반영됩니다.
           </li>
         </ol>
 
