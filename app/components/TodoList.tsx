@@ -199,7 +199,9 @@ export default function TodoList() {
                 </span>
                 <div className="flex flex-wrap gap-1 mt-1">
                   <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">{todo.department}</span>
-                  <span className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">{todo.category}</span>
+                  <span className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">
+                    {todo.category === "지류" || todo.category === "모바일" ? todo.category : "지류"}
+                  </span>
                   <span className="text-xs px-2 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 rounded-full">{todo.month}월</span>
                   <span className="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">{todo.amount.toLocaleString()}원</span>
                   <span className="text-xs px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 rounded-full">{todo.card}</span>
