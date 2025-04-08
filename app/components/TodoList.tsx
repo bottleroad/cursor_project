@@ -78,24 +78,24 @@ export default function TodoList() {
   const totalAmount = todos.reduce((sum, todo) => sum + todo.amount, 0);
   const filteredTotalAmount = filteredTodos.reduce((sum, todo) => sum + todo.amount, 0);
 
-  // 월별 합계 계산
-  const getMonthlyTotals = (todoList: Todo[]) => {
-    const monthlyTotals: Record<string, number> = {};
+  // 백화점별 합계 계산
+  const getDepartmentTotals = (todoList: Todo[]) => {
+    const departmentTotals: Record<string, number> = {};
     
     todoList.forEach(todo => {
-      if (!monthlyTotals[todo.month]) {
-        monthlyTotals[todo.month] = 0;
+      if (!departmentTotals[todo.department]) {
+        departmentTotals[todo.department] = 0;
       }
-      monthlyTotals[todo.month] += todo.amount;
+      departmentTotals[todo.department] += todo.amount;
     });
     
-    // 월 순서대로 정렬
-    return Object.entries(monthlyTotals)
-      .sort((a, b) => parseInt(a[0]) - parseInt(b[0]))
-      .map(([month, amount]) => ({ month, amount }));
+    // 이름 순으로 정렬
+    return Object.entries(departmentTotals)
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([department, amount]) => ({ department, amount }));
   };
   
-  const monthlyTotals = getMonthlyTotals(filteredTodos);
+  const departmentTotals = getDepartmentTotals(filteredTodos);
 
   return (
     <div className="w-full max-w-md mx-auto">
@@ -150,14 +150,14 @@ export default function TodoList() {
             </div>
           )}
           
-          {/* 월별 합계 표시 */}
-          {monthlyTotals.length > 0 && (
+          {/* 백화점별 합계 표시 */}
+          {departmentTotals.length > 0 && (
             <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-              <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">월별 합계:</h3>
+              <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">백화점별 합계:</h3>
               <div className="grid grid-cols-2 gap-2">
-                {monthlyTotals.map(({ month, amount }) => (
-                  <div key={month} className="flex justify-between items-center bg-white/20 dark:bg-gray-700/20 rounded-lg p-2">
-                    <span className="text-xs font-medium text-gray-600 dark:text-gray-400">{month}월</span>
+                {departmentTotals.map(({ department, amount }) => (
+                  <div key={department} className="flex justify-between items-center bg-white/20 dark:bg-gray-700/20 rounded-lg p-2">
+                    <span className="text-xs font-medium text-gray-600 dark:text-gray-400">{department}</span>
                     <span className="text-xs font-bold text-blue-600 dark:text-blue-400">{amount.toLocaleString()}원</span>
                   </div>
                 ))}
