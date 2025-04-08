@@ -8,7 +8,7 @@ interface Todo {
   text: string;
   completed: boolean;
   department: string; // 백화점
-  category: string;   // 구분
+  category: string;   // 지류/모바일
   month: string;      // 월
   amount: number;     // 금액
   card: string;       // 카드
