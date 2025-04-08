@@ -20,7 +20,7 @@ export default function Clock() {
     <div className="w-full max-w-md mx-auto mb-8 backdrop-blur-md bg-white/10 dark:bg-gray-800/30 rounded-2xl shadow-xl border border-white/20 overflow-hidden">
       <div className="px-6 py-8 relative">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/50 to-purple-600/50 opacity-60 z-0"></div>
-        <div className="relative z-10">
+        <div className="relative z-10 text-center">
           <div className="text-4xl font-bold text-white mb-2 tracking-tight">
             {time ? time.toLocaleTimeString('ko-KR') : ''}
           </div>
