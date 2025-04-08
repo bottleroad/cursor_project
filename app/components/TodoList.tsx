@@ -39,7 +39,9 @@ export default function TodoList() {
   };
 
   const handleDeleteTodo = (id: number) => {
-    setTodos(todos.filter(todo => todo.id !== id));
+    if (window.confirm('이 항목을 삭제하시겠습니까?')) {
+      setTodos(todos.filter(todo => todo.id !== id));
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent, id: number) => {
@@ -208,12 +210,12 @@ export default function TodoList() {
               <button
                 onClick={() => handleDeleteTodo(todo.id)}
                 onKeyDown={(e) => handleKeyDown(e, todo.id)}
-                className="text-gray-400 hover:text-red-500 p-1 rounded-full hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
+                className="flex-shrink-0 text-red-500 hover:text-white p-1 bg-white/10 hover:bg-red-500 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 ml-1"
                 tabIndex={0}
                 aria-label={`${todo.text} 삭제하기`}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </li>
@@ -233,7 +235,7 @@ export default function TodoList() {
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
             </svg>
-            교환 완료
+            전체 항목 삭제
           </button>
         </div>
       )}
