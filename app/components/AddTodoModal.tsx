@@ -25,8 +25,8 @@ export default function AddTodoModal({ onClose, onAddTodo }: AddTodoModalProps) 
     `${String(today.getHours()).padStart(2, '0')}:${String(today.getMinutes()).padStart(2, '0')}`;
 
   const [formData, setFormData] = useState<TodoInput>({
-    text: '',
-    department: '롯데백화점',
+    text: '지마켓',
+    department: '지마켓',
     category: '구분',
     month: (today.getMonth() + 1).toString(),
     amount: 500000,
@@ -35,6 +35,7 @@ export default function AddTodoModal({ onClose, onAddTodo }: AddTodoModalProps) 
     time: formattedTime,
   });
 
+  const purchasePlaces = ['지마켓', '국민카드', '삼성카드', '신한카드'];
   const departments = ['롯데백화점', '현대백화점', '신세계백화점', '갤러리아백화점', '홈플러스'];
   const categories = ['지류', '모바일'];
   const months = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
@@ -54,7 +55,6 @@ export default function AddTodoModal({ onClose, onAddTodo }: AddTodoModalProps) 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.text.trim()) return;
     onAddTodo(formData);
   };
 
@@ -71,15 +71,17 @@ export default function AddTodoModal({ onClose, onAddTodo }: AddTodoModalProps) 
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 구매처
               </label>
-              <input
-                type="text"
+              <select
                 name="text"
                 value={formData.text}
                 onChange={handleChange}
-                placeholder="구매처를 입력하세요"
                 className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
                 required
-              />
+              >
+                {purchasePlaces.map(place => (
+                  <option key={place} value={place}>{place}</option>
+                ))}
+              </select>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
