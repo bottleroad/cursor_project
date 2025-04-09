@@ -17,7 +17,7 @@ export default function Clock() {
   }, []);
 
   const handleOpenPriceLink = () => {
-    window.open('https://wooh.co.kr/quote.php', '_blank', 'noopener,noreferrer');
+    window.open('https://1bang.kr/pages/tp', '_blank', 'noopener,noreferrer');
   };
 
   return (
