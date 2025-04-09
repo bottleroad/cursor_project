@@ -136,7 +136,7 @@ export default function TodoList() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full max-w-full px-4 md:max-w-2xl mx-auto">
       <div className="flex justify-between items-center mb-6">
         <div className="flex space-x-2">
           <Button 
