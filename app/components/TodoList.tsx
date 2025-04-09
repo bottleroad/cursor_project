@@ -144,7 +144,7 @@ export default function TodoList() {
             onClick={() => setFilter('all')}
             className={`${
               filter === 'all'
-                ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
                 : 'bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border-zinc-700'
             } transition-colors`}
           >
@@ -185,25 +185,27 @@ export default function TodoList() {
       </div>
       
       {/* 금액 합계 표시 */}
-      <Card className="mb-4 p-4 bg-zinc-900/50 border-zinc-800">
-        <div className="flex flex-col gap-2">
-          <div className="flex justify-between items-center">
-            <span className="text-zinc-400">합계:</span>
-            <span className="text-lg font-bold text-emerald-400">
-              {filteredTotalAmount.toLocaleString()}원
-            </span>
-          </div>
-          {filter !== 'all' && (
-            <div className="flex justify-between items-center text-sm">
-              <span className="text-zinc-400">구매 총액:</span>
-              <span className="font-medium text-zinc-400">
-                {totalAmount.toLocaleString()}원
+      <Card className="mb-4 bg-zinc-900/50 border-zinc-800">
+        <div className="p-4">
+          <div className="flex flex-col gap-2">
+            <div className="flex justify-between items-center">
+              <span className="text-zinc-400">합계:</span>
+              <span className="text-lg font-bold text-emerald-400">
+                {filteredTotalAmount.toLocaleString()}원
               </span>
             </div>
-          )}
-          
-          {/* 백화점별 합계와 월별 합계는 전체 목록에서만 표시 */}
-          {filter === 'all' && renderTotals()}
+            {filter !== 'all' && (
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-zinc-400">구매 총액:</span>
+                <span className="font-medium text-zinc-400">
+                  {totalAmount.toLocaleString()}원
+                </span>
+              </div>
+            )}
+            
+            {/* 백화점별 합계와 월별 합계는 전체 목록에서만 표시 */}
+            {filter === 'all' && renderTotals()}
+          </div>
         </div>
       </Card>
       
