@@ -136,7 +136,7 @@ export default function TodoList() {
   };
 
   return (
-    <div className="w-full max-w-full md:max-w-2xl mx-auto">
+    <div className="container mx-auto px-2">
       <div className="flex justify-between items-center mb-4">
         <div className="flex space-x-1 md:space-x-2">
           <Button 
@@ -146,7 +146,7 @@ export default function TodoList() {
               filter === 'all'
                 ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
                 : 'bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border-zinc-700'
-            } transition-colors text-sm md:text-base px-2.5 md:px-4`}
+            } transition-colors text-sm md:text-base px-2 md:px-4`}
           >
             전체
           </Button>
@@ -157,7 +157,7 @@ export default function TodoList() {
               filter === 'active'
                 ? 'bg-amber-600 hover:bg-amber-700 text-white'
                 : 'bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border-zinc-700'
-            } transition-colors text-sm md:text-base px-2.5 md:px-4`}
+            } transition-colors text-sm md:text-base px-2 md:px-4`}
           >
             미수신
           </Button>
@@ -168,14 +168,14 @@ export default function TodoList() {
               filter === 'completed'
                 ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
                 : 'bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border-zinc-700'
-            } transition-colors text-sm md:text-base px-2.5 md:px-4`}
+            } transition-colors text-sm md:text-base px-2 md:px-4`}
           >
             수신
           </Button>
         </div>
         <Button
           onClick={() => setIsModalOpen(true)}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white transition-colors flex items-center gap-1 px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white transition-colors flex items-center gap-1 px-2 py-1.5 md:px-4 md:py-2 text-sm md:text-base"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />

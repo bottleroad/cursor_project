@@ -37,7 +37,7 @@ export default function Clock() {
   };
 
   return (
-    <div className="w-full max-w-full md:max-w-2xl mx-auto">
+    <div className="container mx-auto px-2">
       <Card className="bg-zinc-900/50 border-zinc-800 mb-4">
         <div className="p-3 md:p-4">
           <div className="flex justify-between items-center">
@@ -53,7 +53,7 @@ export default function Clock() {
               <Button
                 variant="secondary"
                 onClick={handlePriceClick}
-                className="bg-purple-600 hover:bg-purple-700 text-white text-sm md:text-base px-3 py-1.5 md:px-4 md:py-2"
+                className="bg-purple-600 hover:bg-purple-700 text-white text-sm md:text-base px-2 py-1.5 md:px-4 md:py-2"
                 aria-label="시세 확인하기"
               >
                 <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
