@@ -7,51 +7,61 @@ import { ExternalLink } from "lucide-react";
 
 export default function Clock() {
   const [time, setTime] = useState<Date | null>(null);
+  const [date, setDate] = useState<string>('');
 
   useEffect(() => {
     // 클라이언트에서만 초기 시간 설정
     setTime(new Date());
+    setDate(new Date().toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      weekday: 'long'
+    }));
     
     const timer = setInterval(() => {
       setTime(new Date());
+      setDate(new Date().toLocaleDateString('ko-KR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long'
+      }));
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
 
-  const handleOpenPriceLink = () => {
+  const handlePriceClick = () => {
     window.open('https://1bang.kr/pages/tp', '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <div className="w-full max-w-full px-4 md:max-w-2xl mx-auto mb-4">
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-900 via-indigo-800 to-indigo-900 shadow-xl">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative p-6">
+    <div className="w-full max-w-full md:max-w-2xl mx-auto">
+      <Card className="bg-zinc-900/50 border-zinc-800 mb-4">
+        <div className="p-3 md:p-4">
           <div className="flex justify-between items-center">
             <div>
-              <h2 className="text-5xl font-bold text-white mb-1">{time ? time.toLocaleTimeString('ko-KR') : ''}</h2>
-              <p className="text-indigo-200">{time ? time.toLocaleDateString('ko-KR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                weekday: 'long'
-              }) : ''}</p>
+              <h1 className="text-2xl md:text-3xl font-bold mb-1">
+                {time ? time.toLocaleTimeString('ko-KR') : ''}
+              </h1>
+              <p className="text-sm md:text-base text-zinc-400">
+                {date}
+              </p>
             </div>
             <div className="flex items-center h-full">
               <Button
-                onClick={handleOpenPriceLink}
                 variant="secondary"
-                className="bg-purple-600 hover:bg-purple-700 text-white"
-                aria-label="시세 보기"
+                onClick={handlePriceClick}
+                className="bg-purple-600 hover:bg-purple-700 text-white text-sm md:text-base px-3 py-1.5 md:px-4 md:py-2"
+                aria-label="시세 확인하기"
               >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                시세
+                <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
               </Button>
             </div>
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 } 

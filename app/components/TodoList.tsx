@@ -136,9 +136,9 @@ export default function TodoList() {
   };
 
   return (
-    <div className="w-full max-w-full px-4 md:max-w-2xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <div className="flex space-x-2">
+    <div className="w-full max-w-full md:max-w-2xl mx-auto">
+      <div className="flex justify-between items-center mb-4">
+        <div className="flex space-x-1 md:space-x-2">
           <Button 
             variant={filter === 'all' ? 'default' : 'outline'}
             onClick={() => setFilter('all')}
@@ -146,7 +146,7 @@ export default function TodoList() {
               filter === 'all'
                 ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
                 : 'bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border-zinc-700'
-            } transition-colors`}
+            } transition-colors text-sm md:text-base px-2.5 md:px-4`}
           >
             전체
           </Button>
@@ -157,7 +157,7 @@ export default function TodoList() {
               filter === 'active'
                 ? 'bg-amber-600 hover:bg-amber-700 text-white'
                 : 'bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border-zinc-700'
-            } transition-colors`}
+            } transition-colors text-sm md:text-base px-2.5 md:px-4`}
           >
             미수신
           </Button>
@@ -168,16 +168,16 @@ export default function TodoList() {
               filter === 'completed'
                 ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
                 : 'bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border-zinc-700'
-            } transition-colors`}
+            } transition-colors text-sm md:text-base px-2.5 md:px-4`}
           >
             수신
           </Button>
         </div>
         <Button
           onClick={() => setIsModalOpen(true)}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white transition-colors flex items-center gap-1 px-4"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white transition-colors flex items-center gap-1 px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
           추가하기
@@ -186,18 +186,18 @@ export default function TodoList() {
       
       {/* 금액 합계 표시 */}
       <Card className="mb-4 bg-zinc-900/50 border-zinc-800">
-        <div className="p-4">
+        <div className="p-3 md:p-4">
           <div className="flex flex-col gap-2">
             <div className="flex justify-between items-center">
-              <span className="text-zinc-400">합계:</span>
-              <span className="text-lg font-bold text-emerald-400">
+              <span className="text-zinc-400 text-sm md:text-base">합계:</span>
+              <span className="text-base md:text-lg font-bold text-emerald-400">
                 {filteredTotalAmount.toLocaleString()}원
               </span>
             </div>
             {filter !== 'all' && (
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-zinc-400">구매 총액:</span>
-                <span className="font-medium text-zinc-400">
+              <div className="flex justify-between items-center">
+                <span className="text-zinc-400 text-sm md:text-base">구매 총액:</span>
+                <span className="text-sm md:text-base font-medium text-zinc-400">
                   {totalAmount.toLocaleString()}원
                 </span>
               </div>
