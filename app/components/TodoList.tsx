@@ -131,6 +131,26 @@ export default function TodoList() {
             ))}
           </div>
         </div>
+        
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">카드별 합계</h3>
+          <div className="space-y-2">
+            {Object.entries(todos.reduce((acc, todo) => {
+              const card = todo.card;
+              acc[card] = (acc[card] || 0) + todo.amount;
+              return acc;
+            }, {} as { [key: string]: number }))
+              .map(([card, total]) => (
+                <div key={card} className="flex justify-between items-center text-sm">
+                  <span className="text-gray-600 dark:text-gray-300">{card}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {total.toLocaleString()}원
+                  </span>
+                </div>
+            ))}
+          </div>
+        </div>
+        
       </div>
     );
   };

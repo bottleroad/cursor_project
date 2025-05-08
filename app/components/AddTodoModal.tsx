@@ -26,7 +26,7 @@ export default function AddTodoModal({ onClose, onAddTodo }: AddTodoModalProps) 
 
   const [formData, setFormData] = useState<TodoInput>({
     text: '지마켓',
-    department: '지마켓',
+    department: '현대백화점점',
     category: '구분',
     month: (today.getMonth() + 1).toString(),
     amount: 500000,
@@ -36,7 +36,7 @@ export default function AddTodoModal({ onClose, onAddTodo }: AddTodoModalProps) 
   });
 
   const purchasePlaces = ['지마켓', '국민카드', '삼성카드', '신한카드'];
-  const departments = ['롯데백화점', '현대백화점', '신세계백화점', '갤러리아백화점', '홈플러스'];
+  const departments = ['현대백화점', '롯데백화점', '신세계백화점', '갤러리아백화점', '홈플러스'];
   const categories = ['지류', '모바일'];
   const months = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
   const amounts = [
